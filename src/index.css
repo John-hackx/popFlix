@@ -1,0 +1,436 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background-color: #212529;
+}
+
+/*styling scrollbar*/
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height for horizontal scrollbar */
+}
+
+/* Style the track (background) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light grey background */
+  border-radius: 10px;
+}
+
+/* Style the thumb (the part that is dragged) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Gray thumb */
+  border-radius: 10px;
+}
+
+/* Change thumb color on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker gray thumb on hover */
+}
+
+/* Optional: style the scrollbar corner (where horizontal and vertical scrollbars meet) */
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}
+
+.app-container {
+  padding: 20px;
+  height: 100vh;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+.navbar {
+  /* border: 1px solid yellow; */
+  flex: 0.1;
+}
+
+nav {
+  height: 70px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #6741d9;
+  /* height: 100%; */
+}
+.logo {
+  display: flex;
+}
+.logo span {
+  font-size: 40px;
+}
+.logo h2 {
+  font-size: 30px;
+  margin-top: 5px;
+  color: #f6f7f8;
+}
+.search input {
+  height: 40px;
+  border-radius: 5px;
+  width: 350px;
+  outline: none;
+  font-size: 17px;
+  color: #f6f7f8;
+  font-weight: 300;
+  padding: 10px;
+  background-color: rgb(121, 80, 242);
+  border: none;
+}
+.search input::placeholder {
+  color: #a0a1a1;
+}
+.search button {
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  background-color: #9b7ff1;
+  font-size: 17px;
+  color: #f6f7f8;
+}
+.results-found {
+  margin-right: 10px;
+}
+.results-found p {
+  color: #f6f7f8;
+  font-size: 17px;
+}
+
+.main {
+  /* border: 1px solid green; */
+  width: 65%;
+  flex: 0.9;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  height: 400px;
+  justify-content: space-between;
+}
+.box {
+  position: relative;
+  flex: 0.48;
+  height: 100%;
+  background-color: #2b3035;
+  border-radius: 5px;
+}
+
+.btn-controllDisplay {
+  position: absolute !important;
+  margin-top: 10px;
+  z-index: 1;
+  margin-left: 85%;
+  width: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  color: #f1f1f1;
+  position: sticky;
+  height: 30px;
+  background-color: #32597e;
+  border-radius: 50%;
+  border: none;
+}
+.btn-controllDisplay:hover {
+  cursor: pointer;
+}
+
+.movie-list {
+  overflow-y: scroll;
+  height: 96%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  /* border: 1px solid red; */
+}
+
+.movie-card {
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.178);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+}
+.movie-card:hover {
+  background-color: rgba(255, 255, 255, 0.178);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-image {
+  flex: 0.2;
+  margin-left: 10px;
+}
+.movie-image img {
+  width: 60px;
+  height: 70px;
+}
+
+.movie-info {
+  flex: 0.8;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.movie-info h3 {
+  font-weight: 500;
+  color: #f6f7f8;
+}
+
+.movie-info p {
+  color: #f6f7f8;
+}
+.movie-info p span {
+  margin-right: 5px;
+}
+
+.watched-header {
+  width: 100%;
+  height: 80px;
+  /* border: 1px solid red; */
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(52, 58, 64);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.178);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding-left: 10px;
+}
+.watched-header h3 {
+  color: #c6c7c7;
+  font-weight: 500;
+}
+.watched-header-list {
+  color: #d4d5d6;
+  display: flex;
+  gap: 2px;
+  list-style: none;
+  margin-top: 15px;
+}
+.watched-header-list li {
+  margin-right: 15px;
+  font-weight: 500;
+}
+.watched-header-list li span {
+  margin-right: 5px;
+}
+
+.watched-list {
+  /* border: 1px solid red; */
+  height: 370px;
+  overflow-y: scroll;
+  margin-top: 20px;
+}
+
+.movie-card li {
+  font-weight: 200;
+}
+
+.extra {
+  margin-top: 2px !important;
+}
+
+.movie-details {
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  height: 100%;
+}
+
+.movie-details-top {
+  display: flex;
+  flex: 0.4;
+  background-color: rgb(52, 58, 64);
+  /* border: 1px solid red; */
+}
+
+.movie-details-top-left {
+  position: relative;
+  flex: 0.4;
+  /* border: 1px solid yellow; */
+}
+.movie-details-top-left img {
+  width: 100%;
+  height: 100%;
+}
+
+.movie-details-top-right {
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* border: 1px solid green; */
+  padding: 10px;
+  padding-left: 20px;
+}
+.details-title {
+  margin-top: 25px;
+  /* font-weight: 500 !important; */
+  font-size: 28px;
+  color: #f6f7f8;
+}
+.details-time {
+  color: #f6f7f8;
+}
+
+.details-rating {
+  color: #f6f7f8;
+  margin-left: -2px;
+}
+.details-rating span {
+  margin-right: 5px;
+}
+.details-genre {
+  color: #f6f7f8;
+}
+
+.movie-details-bottom {
+  flex: 0.6;
+}
+
+.btn-back {
+  position: absolute !important;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 30px;
+  z-index: 1;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  color: #050505;
+  position: sticky;
+  height: 30px;
+  background-color: #e1e3e6;
+  border-radius: 50%;
+  border: none;
+}
+.btn-back:hover {
+  cursor: pointer;
+}
+
+.rating {
+  padding: 15px;
+  /* border: 1px solid red; */
+  width: 73%;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: rgb(52, 58, 64);
+  height: 60px;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+.add-movie {
+  width: 73%;
+  border-radius: 10px;
+  margin-left: 55px;
+  margin-top: 20px;
+  height: 35px;
+  font-size: 18px;
+  background-color: #6741d9;
+  border: none;
+  color: #e1e3e6;
+}
+.add-movie:hover {
+  background-color: #7b5fcf;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.details-cast {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-style: italic;
+  padding: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 100%;
+}
+.details-cast p {
+  color: #f6f7f8;
+  font-size: 15px;
+}
+
+.list-items {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  color: #fff;
+}
+.list-items li span {
+  margin-right: 10px;
+}
+.btn-delete {
+  width: 26px;
+  border: none;
+  color: #fff;
+  background: rgb(141, 28, 28);
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.btn-delete:hover {
+  cursor: pointer;
+}
+
+.watched-movie-card {
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.178);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+}
+.watched-movie-card:hover {
+  background-color: rgba(255, 255, 255, 0.178);
+  transition: all 0.3s ease;
+}
+
+.already-watched-text {
+  font-size: 18px;
+  /* color: #fff; */
+  background-color: rgb(52, 58, 64);
+  /* border: 1px solid red; */
+  color: rgb(166, 33, 243);
+  margin-top: 25px;
+  width: 80%;
+  text-align: center;
+  margin-left: 40px;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.loading {
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-top: 70px;
+}
+
+.loading p {
+  color: #fff;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 810px) {
+  .search button {
+    display: none;
+  }
+  .search input {
+    display: none;
+  }
+}

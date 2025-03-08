@@ -27,7 +27,7 @@ export default function App() {
         try {
           setIsLoading(true);
           const res = await fetch(
-            `http://www.omdbapi.com/?s=${query}&apikey=${KEY}`,
+            `https://www.omdbapi.com/?s=${query}&apikey=${KEY}`,
             { signal: controller.signal }
           );
           if (!res.ok) throw new Error("Failed to fetch");
@@ -321,7 +321,7 @@ function MovieList({
         // setIsLoading(true);
         try {
           const res = await fetch(
-            `http://www.omdbapi.com/?i=${selectedMovie?.imdbID}&apikey=${KEY}`
+            `https://www.omdbapi.com/?i=${selectedMovie?.imdbID}&apikey=${KEY}`
           );
           if (!res.ok) throw new Error("Failed to fetch");
           const data = await res.json();
